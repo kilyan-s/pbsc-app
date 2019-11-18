@@ -1,64 +1,30 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#000');
-
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
-
-
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
-});
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Tab 1',
-    window:win1
-});
-
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
-
-win1.add(label1);
-
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
-});
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
-});
-
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
-
-win2.add(label2);
+///DEVICE SIZE & SCREEN DENSITY
+Ti.App.WIDTH   = Ti.Platform.displayCaps.platformWidth;
+Ti.App.HEIGHT  = Ti.Platform.displayCaps.platformHeight;
+Ti.App.DENSITY = Ti.Platform.displayCaps.logicalDensityFactor;
 
 
+////DEVICE RESOLUTION
+Ti.App.IPHONE4     = (Ti.App.WIDTH == 320 && Ti.App.HEIGHT == 480) ? true : false;
+Ti.App.IPHONE_SE   = (Ti.App.WIDTH == 320 && Ti.App.HEIGHT == 568) ? true : false;
+Ti.App.IPHONE      = (Ti.App.WIDTH == 375 && Ti.App.HEIGHT == 667) ? true : false;
+Ti.App.IPHONE_PLUS = (Ti.App.WIDTH == 414 && Ti.App.HEIGHT == 736) ? true : false;
+Ti.App.IPHONE_X    = (Ti.App.WIDTH == 375 && Ti.App.HEIGHT == 812) ? true : false;
+Ti.App.IPHONE_MAX  = (Ti.App.WIDTH == 414 && Ti.App.HEIGHT == 896) ? true : false;
 
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
 
+/***** GLOBALS *****/
+Ti.App.OSNAME                = Ti.Platform.osname,
+Ti.App.IS_FULL_SCREEN        = (Ti.App.IPHONE_X || Ti.App.IPHONE_MAX) ? true : false;
+Ti.App.STATUS_BAR_HEIGHT     = (Ti.App.IS_FULL_SCREEN) ? 44 : 20;
+Ti.App.NAVBAR_CONTENT_HEIGHT = 44;
+Ti.App.NAVBAR_HEIGHT         = Ti.App.STATUS_BAR_HEIGHT + Ti.App.NAVBAR_CONTENT_HEIGHT;
 
-// open tab group
-tabGroup.open();
+/***** PHONE LANGUAGE *****/
+Ti.App.LANGUAGE = (Ti.Locale.currentLanguage == 'fr') ? "fr" : "en";
+
+var forgotPwdWin = require("ui/forgotPassword").getWin();
+
+///NAVIGATION CONTROLLER FOR IOS
+Ti.App.NAV_CTRL = Ti.UI.createNavigationWindow({window:forgotPwdWin});
+Ti.App.NAV_CTRL.open();

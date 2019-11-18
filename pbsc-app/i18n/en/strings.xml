@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ressources>
+	<string name="app_name">pbsc-app</string>
+
+  <!-- APP -->
+  <string name="pwdForgotTitle">Forgot your password?</string>
+  <string name="pwdForgotSubTitle">Please enter the email address registred on your account.</string>
+  <string name="pwdForgotEmailTitle">Email address</string>
+  <string name="pwdForgotBtnTitle">Reset password</string>
+  <string name="pwdForgotSuccess">Email was sent to you. Please check your email.</string>
+  <string name="pwdForgotError">No account was found using this email address.</string>
+  <string name="pwdForgotFieldEmpty">Please fill in your email address.</string>
+  <string name="pwdForgotFieldErrorFormat">Please enter a valid email address.</string>
+
+</ressources>

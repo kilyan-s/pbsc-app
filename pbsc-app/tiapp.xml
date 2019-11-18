@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
 	<id>com.kilyansockalingum.pbsc</id>
 	<name>pbsc-app</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<publisher>not specified</publisher>
 	<url>kilyansockalingum.com</url>
 	<description></description>
@@ -13,7 +13,11 @@
 	<analytics>true</analytics>
 	<guid>b6c988ef-472d-464c-8e9a-88e4e41efbda</guid>
 	<property name="ti.ui.defaultunit" type="string">dp</property>
+	<property name="run-on-main-thread" type="bool">true</property>
 	<ios>
+		<min-ios-ver>10.0</min-ios-ver>
+		<enable-launch-screen-storyboard>false</enable-launch-screen-storyboard>
+		<use-app-thinning>true</use-app-thinning>
 		<plist>
 			<dict>
 				<key>UISupportedInterfaceOrientations~iphone</key>
@@ -40,23 +44,11 @@
 	</ios>
 	<android xmlns:android="http://schemas.android.com/apk/res/android">
 	</android>
-	<mobileweb>
-		<precache>
-		</precache>
-		<splash>
-			<enabled>true</enabled>
-			<inline-css-images>true</inline-css-images>
-		</splash>
-		<theme>default</theme>
-	</mobileweb>
 	<modules>
 	</modules>
 	<deployment-targets>
 		<target device="android">true</target>
-		<target device="ipad">false</target>
 		<target device="iphone">true</target>
-		<target device="mobileweb">false</target>
-		<target device="windows">false</target>
 	</deployment-targets>
-	<sdk-version>5.1.1.GA</sdk-version>
+	<sdk-version>8.2.1.GA</sdk-version>
 </ti:app>
